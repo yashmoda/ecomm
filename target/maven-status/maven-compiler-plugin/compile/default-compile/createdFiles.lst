@@ -1,9 +1,14 @@
 com/cf/signup/RegisterRowMapper.class
+com/cf/signup/Register.class
+com/cf/admin/AdminDAO.class
+com/cf/products/ProductsService.class
 com/cf/admin/AdminService.class
+com/cf/products/ProductsDAO.class
+com/cf/products/ProductsController.class
 com/cf/signup/RegisterController.class
 com/cf/Application.class
 com/cf/signup/RegisterService.class
-com/cf/signup/Register.class
-com/cf/admin/AdminDAO.class
+com/cf/products/ProductsRowMapper.class
 com/cf/admin/AdminController.class
+com/cf/products/Products.class
 com/cf/signup/RegisterDAO.class

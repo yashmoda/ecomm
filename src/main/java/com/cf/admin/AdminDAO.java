@@ -1,5 +1,6 @@
 package com.cf.admin;
 
+import com.cf.products.Products;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -36,5 +37,11 @@ public class AdminDAO {
         String query = "SELECT * FROM register where email = ?";
         RowMapper<Register> mapper = new RegisterRowMapper();
         return jdbcTemplate.queryForObject(query, mapper, email);
+    }
+
+    public void addProducts(Products products)
+    {
+        String query = "INSERT INTO products(name, description, price) values (?, ?, ?)";
+        jdbcTemplate.update(query, products.getName(), products.getDescription(), products.getPrice());
     }
 }
