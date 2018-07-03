@@ -1,5 +1,7 @@
 package com.cf.admin;
 
+import com.cf.orders.Order;
+import com.cf.orders.OrderRowMapper;
 import com.cf.products.Products;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -43,5 +45,40 @@ public class AdminDAO {
     {
         String query = "INSERT INTO products(name, description, price) values (?, ?, ?)";
         jdbcTemplate.update(query, products.getName(), products.getDescription(), products.getPrice());
+    }
+
+    public List<Order> allCancelledOrders()
+    {
+        String query = "SELECT * FROM ORDERS WHERE order_status = -1";
+        RowMapper<Order> mapper = new OrderRowMapper();
+        return jdbcTemplate.query(query, mapper);
+    }
+
+    public List<Order> allOrders()
+    {
+        String query = "SELECT * FROM orders";
+        RowMapper<Order> mapper = new OrderRowMapper();
+        return jdbcTemplate.query(query, mapper);
+    }
+
+    public List<Order> completedOrders()
+    {
+        String query = "SELECT * FROM orders WHERE delivery_status = 1";
+        RowMapper<Order> mapper = new OrderRowMapper();
+        return jdbcTemplate.query(query, mapper);
+    }
+
+    public List<Order> pendingOrders()
+    {
+        String query = "SELECT * FROM orders WHERE delivery_status = 0";
+        RowMapper<Order> mapper = new OrderRowMapper();
+        return jdbcTemplate.query(query, mapper);
+    }
+
+    public Order getOrderById(int id)
+    {
+        String query = "SELECT * FROM orders WHERE id = ?";
+        RowMapper<Order> mapper = new OrderRowMapper();
+        return jdbcTemplate.queryForObject(query, mapper, id);
     }
 }

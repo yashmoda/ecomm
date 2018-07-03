@@ -1,5 +1,6 @@
 package com.cf.admin;
 
+import com.cf.orders.Order;
 import com.cf.products.Products;
 import com.cf.signup.Register;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,36 @@ public class AdminService {
     public void addProducts(Products products)
     {
         adminDAO.addProducts(products);
+    }
+
+    public List<Order> allOrders()
+    {
+        List<Order> orders = adminDAO.allOrders();
+        return orders;
+    }
+
+    public List<Order> completedOrders()
+    {
+        List<Order> orders = adminDAO.completedOrders();
+        return orders;
+    }
+
+    public List<Order> allCancelledOrders()
+    {
+        List<Order> orders = adminDAO.allCancelledOrders();
+        return orders;
+    }
+
+    public List<Order> pendingOrders()
+    {
+        List<Order> orders = adminDAO.pendingOrders();
+        return orders;
+    }
+
+    public Order getOrderById(int id)
+    {
+        Order order = adminDAO.getOrderById(id);
+        return order;
     }
 
 }

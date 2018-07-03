@@ -1,5 +1,6 @@
 package com.cf.admin;
 
+import com.cf.orders.Order;
 import com.cf.products.Products;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,5 +44,40 @@ public class AdminController {
     {
         adminService.addProducts(products);
         return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/all_orders")
+    public ResponseEntity<List<Order>> allOrders()
+    {
+        List<Order> orders = adminService.allOrders();
+        return new ResponseEntity<List<Order>>(orders, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/cancelled_orders")
+    public ResponseEntity<List<Order>> allCancelledOrders()
+    {
+        List<Order> orders = adminService.allCancelledOrders();
+        return new ResponseEntity<List<Order>>(orders, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/completed_orders")
+    public ResponseEntity<List<Order>> completedOrders()
+    {
+        List<Order> orders = adminService.completedOrders();
+        return new ResponseEntity<List<Order>>(orders, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/pending_orders")
+    public ResponseEntity<List<Order>> pendingOrders()
+    {
+        List<Order> orders = adminService.pendingOrders();
+        return new ResponseEntity<List<Order>>(orders, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/get_order_by_id")
+    public ResponseEntity<Order> getOrderById(@RequestParam int id)
+    {
+        Order order = adminService.getOrderById(id);
+        return new ResponseEntity<Order>(order, HttpStatus.OK);
     }
 }
