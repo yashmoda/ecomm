@@ -1,3 +1,4 @@
+com/cf/favorites/Favorites.class
 com/cf/address/AddressController.class
 com/cf/orders/OrderRowMapper.class
 com/cf/orders/OrderController.class
@@ -11,14 +12,19 @@ com/cf/address/AddressDAO.class
 com/cf/admin/AdminController.class
 com/cf/address/Address.class
 com/cf/products/Products.class
+com/cf/favorites/FavoritesController.class
 com/cf/signup/RegisterRowMapper.class
 com/cf/address/AddressService.class
+com/cf/favorites/FavoritesService.class
 com/cf/signup/Register.class
 com/cf/admin/AdminDAO.class
+com/cf/create_tables.class
 com/cf/products/ProductsService.class
 com/cf/products/ProductsDAO.class
 com/cf/orders/OrderDAO.class
 com/cf/signup/RegisterController.class
 com/cf/orders/OrderService.class
+com/cf/favorites/FavoritesDAO.class
+com/cf/favorites/FavoritesRowMapper.class
 com/cf/products/ProductsRowMapper.class
 com/cf/signup/RegisterDAO.class
