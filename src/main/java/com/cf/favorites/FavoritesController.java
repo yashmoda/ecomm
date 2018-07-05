@@ -30,10 +30,10 @@ public class FavoritesController {
         return new ResponseEntity<List<Favorites>>(favorites, HttpStatus.OK);
     }
 
-    @PostMapping(path="/delete")
-    public ResponseEntity deleteFavorite(@RequestBody int id)
+    @DeleteMapping(path="/delete")
+    public ResponseEntity deleteFavorite(@RequestBody Favorites favorites)
     {
-        favoritesService.deleteFavorites(id);
+        favoritesService.deleteFavorites(favorites);
         return new ResponseEntity(HttpStatus.OK);
     }
 }

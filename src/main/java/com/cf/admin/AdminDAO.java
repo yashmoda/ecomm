@@ -49,7 +49,7 @@ public class AdminDAO {
 
     public List<Order> allCancelledOrders()
     {
-        String query = "SELECT * FROM ORDERS WHERE order_status = -1";
+        String query = "SELECT * FROM orders WHERE order_status = -1";
         RowMapper<Order> mapper = new OrderRowMapper();
         return jdbcTemplate.query(query, mapper);
     }

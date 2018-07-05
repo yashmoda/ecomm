@@ -29,9 +29,9 @@ public class FavoritesDAO {
         return jdbcTemplate.query(query, mapper, phone);
     }
 
-    public void deleteFavorites(int id)
+    public void deleteFavorites(Favorites favorites)
     {
         String query = "DELETE FROM favorites WHERE id = ?";
-        jdbcTemplate.update(query, id);
+        jdbcTemplate.update(query, favorites.getId());
     }
 }

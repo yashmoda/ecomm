@@ -16,9 +16,9 @@ public class FavoritesService {
         favoritesDAO.addFavorites(favorites);
     }
 
-    public void deleteFavorites(int id)
+    public void deleteFavorites(Favorites favorites)
     {
-        favoritesDAO.deleteFavorites(id);
+        favoritesDAO.deleteFavorites(favorites);
     }
 
     public List<Favorites> showFavorites(String phone)
